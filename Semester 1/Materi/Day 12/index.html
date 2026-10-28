@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard</title>
+    <!-- tom select css -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.css" rel="stylesheet">
+    <!-- flatpickr css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- tabulator css -->
+    <link href="https://unpkg.com/tabulator-tables@6.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="library.css">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">JAVASCRIPT LIBRARY</p>
+                <h1>Library Dashboard</h1>
+                <p class="hero-description">Klik, pilih, dan coba tiap library di bawah ini.</p>
+            </div>
+        </section>
+
+        <section class="recipes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <p class="section-label">PREVIEW</p>
+                        <h2>6 Library, 6 Demo</h2>
+                    </div>
+                    <p id="recipe-count">6 library</p>
+                </div>
+
+                <div class="recipe-grid">
+                    <!-- 1. SweetAlert2 -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">SweetAlert2 · Dialog</span>
+                            <h3 class="recipe-title">Konfirmasi hapus</h3>
+                            <p class="lib-desc">Pengganti alert() dan confirm() bawaan browser.</p>
+                            <div class="demo-box">
+                                <button class="favorite-button" id="btn-swal">Delete Library</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. Floating UI -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Floating UI · Tooltip</span>
+                            <h3 class="recipe-title">Tooltip yang pas posisinya</h3>
+                            <p class="lib-desc">Arahkan kursor atau klik ikon ⓘ.</p>
+                            <div class="demo-box">
+                                <div class="kpi">
+                                    <span>Omzet hari ini</span>
+                                    <button class="info-btn" id="info-btn" aria-describedby="tip">i</button>
+                                    <strong>Rp150.000</strong>
+                                </div>
+                                <div class="tip" id="tip" role="tooltip">Harga × jumlah terjual hari ini.</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Tom Select -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Tom Select · Filter</span>
+                            <h3 class="recipe-title">Dropdown pintar</h3>
+                            <p class="lib-desc">Cari dan pilih lebih dari satu kategori.</p>
+                            <div class="demo-box select-box">
+                                <select id="kategori" multiple>
+                                    <option value="Makanan">Makanan</option>
+                                    <option value="Minuman">Minuman</option>
+                                    <option value="Snack">Snack</option>
+                                </select>
+                                <p class="result" id="kategori-result">Belum ada pilihan</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4. Flatpickr -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Flatpickr · Tanggal</span>
+                            <h3 class="recipe-title">Pilih rentang tanggal</h3>
+                            <p class="lib-desc">Klik tanggal awal, lalu tanggal akhir.</p>
+                            <div class="demo-box select-box">
+                                <input id="tanggal" class="date-input" placeholder="Pilih rentang tanggal" readonly>
+                                <p class="result" id="tanggal-result">Belum ada tanggal</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Chart.js -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Chart.js · Grafik</span>
+                            <h3 class="recipe-title">Grafik penjualan</h3>
+                            <p class="lib-desc">Klik tombol untuk mengubah data.</p>
+                            <div class="demo-box chart-box">
+                                <canvas id="chart"></canvas>
+                            </div>
+                            <button class="detail-button chart-button" id="btn-chart">Acak data 🎲</button>
+                        </div>
+                    </article>
+
+                    <!-- 6. Tabulator -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Tabulator · Tabel</span>
+                            <h3 class="recipe-title">Tabel produk</h3>
+                            <p class="lib-desc">Klik judul kolom untuk mengurutkan.</p>
+                            <div id="tabel"></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- sweetalert js  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- floating ui js  -->
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.8.0"></script>
+    <!-- tom select js  -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/js/tom-select.complete.min.js"></script>
+    <!-- flatpickr js  -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/id.js"></script>
+    <!-- chart js  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+    <!-- tabulator js  -->
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.5.0/dist/js/tabulator.min.js"></script>
+    <!-- custom js -->
+    <script src="custom.js"></script>
+    <!-- local js script -->
+    <script src="script.js"></script>
+</body>
+</html>
